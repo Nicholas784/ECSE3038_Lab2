@@ -90,7 +90,7 @@ api.add_resource(Data2, "/data/<int:tank_id>")
 if __name__ == "__main__":
     app.run(
         debug=True,
-        port = 3000,
-        host = "0.0.0.0"
+        #port = 3000,
+        #host = "0.0.0.0"
     )
     
