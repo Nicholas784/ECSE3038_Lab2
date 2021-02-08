@@ -21,7 +21,7 @@
 1. The user can send a PATCH request to change the parts of one of the tanks after it has been posted. The requester can make a JSON body with any combination of the attributes and update them as necessary. The "id" attribute cannot be edited. 
 2. The user can make a DELETE request to delete any previously POSTed object, providing the id number of the object they wish to delete. 
 
-#### **Note: A test file was used to test the server inside of a terminal window. The main file was tested and appears to work. A web browser can also be used to see the data that was added by the test file using the corresponding route. Test data is provided in this test file and can be used by anyone interested in seeing if the server works. A separate terminal must be used to run the test file.** 
+
 
 
 
