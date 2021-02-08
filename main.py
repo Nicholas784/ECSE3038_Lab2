@@ -31,9 +31,9 @@ class Profile(Resource):
 
     def post(self):
         profile["data"]["last_updated"] = datetime.now().strftime("%c")
-        profile["data"]["username"] = request.form['username']
-        profile["data"]["role"] = request.form['role']
-        profile["data"]["color"] = request.form['color']
+        profile["data"]["username"] = request.json['username']
+        profile["data"]["role"] = request.json['role']
+        profile["data"]["color"] = request.json['color']
         return profile
 
     def patch(self):
@@ -41,13 +41,13 @@ class Profile(Resource):
 
         data = (request.form)
         for key in data:
-            profile["data"][key] = request.form[key]
+            profile["data"][key] = request.json[key]
         
         return profile
 
 class Data(Resource):
     def get(self):
-        return jsonify(tank_info)
+        return tank_info
 
 
     def post(self):
@@ -56,24 +56,24 @@ class Data(Resource):
         tank = {}
 
         tank["id"] = tank_id
-        tank["location"] = request.form['location']
-        tank["lat"] = request.form['lat']
-        tank["long"] = request.form['long']
-        tank["percentage_full"] = request.form['percentage_full']
+        tank["location"] = request.json['location']
+        tank["lat"] = request.json['lat']
+        tank["long"] = request.json['long']
+        tank["percentage_full"] = request.json['percentage_full']
 
         tank_info.append(tank)
-        return jsonify(tank_info)
+        return tank_info
 
 
 class Data2(Resource):
     def patch(self, tank_id):
         for item in tank_info: 
             if item["id"] == tank_id:
-                data = (request.form)
+                data = (request.json)
                 for key in data:
-                    item[key] = request.form[key]
+                    item[key] = request.json[key]
 
-        return jsonify(tank_info)
+        return tank_info
 
     def delete(self, tank_id):
         for item in tank_info:
