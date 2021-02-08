@@ -39,7 +39,7 @@ class Profile(Resource):
     def patch(self):
         profile["data"]["last_updated"] = datetime.now().strftime("%c")
 
-        data = (request.form)
+        data = (request.json)
         for key in data:
             profile["data"][key] = request.json[key]
         
